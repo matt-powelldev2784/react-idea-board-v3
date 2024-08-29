@@ -46,6 +46,6 @@ Build app with Vite, React, TypeScript, TailwindCSS, and Jest using template for
 * Ability to sort ideas by title and date
 * Add notification when an update is made to a tile
 
-* Add Tests for main features
+* Add tests for main features
 
-* Add any information reviwer should be aware of in COMMENTS.md
+* Add any information reviewer should be aware of in COMMENTS.md
