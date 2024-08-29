@@ -25,3 +25,27 @@ When working through the task you should treat it as if you're writing real worl
 * Add a character countdown as the user is approaching the limit of their description text.
 * Add an unobtrusive notification when an update is made to a tile.
 
+
+## My approach
+
+Build app with Vite, React, TypeScript, TailwindCSS, and Jest using template form Vite Community
+
+### Project plan in bullet points
+
+* Page should be fully responsive
+* Store ideas in local storage
+
+* Create Idea - title field should be focused, add character countdown
+* Edit Idea - title and description should be editable inline, add character countdown
+* Delete Idea - inline button
+
+* Build Idea Card - which contains title, decsription, created/updated time
+* Title and description should be editable inline
+* Description text should have a max length of 140 characters
+
+* Ability to sort ideas by title and date
+* Add notification when an update is made to a tile
+
+* Add Tests for main features
+
+* Add any information reviwer should be aware of in COMMENTS.md
