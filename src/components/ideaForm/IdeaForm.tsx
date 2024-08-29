@@ -1,17 +1,31 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import lightBulbImage from '../../assets/images/light_bulb_outline.svg';
+import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 type Inputs = {
   title: string;
   description: string;
 };
 
+export const ideaValidationSchema = Yup.object({
+  title: Yup.string()
+    .required('Title is required')
+    .max(20, 'Title must be 20 characters or less'),
+  description: Yup.string()
+    .required('Description is required')
+    .max(140, 'Description must be 140 characters or less'),
+});
+
 export const IdeaForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<Inputs>({
+    resolver: yupResolver(ideaValidationSchema),
+    mode: 'onChange',
+  });
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
   return (
@@ -23,7 +37,7 @@ export const IdeaForm = () => {
       />
       <p className="text-lg font-bold text-primaryBlue">Add Idea</p>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="my-6 gap-4 flexCol">
+      <form onSubmit={handleSubmit(onSubmit)} className="my-4 gap-4 flexCol">
         <div className="w-full max-w-md flexCol">
           <input
             {...register('title', { required: true })}
@@ -31,24 +45,21 @@ export const IdeaForm = () => {
             autoFocus
             className="h-10 rounded-lg border border-gray-400 px-2 outline-none flexCol focus:border-2 focus:border-primaryBlue"
           />
-          {errors.title && (
-            <span className="text-xs italic text-red-500">
-              This field is required
-            </span>
-          )}
+
+          <span className="min-h-4 text-xs italic text-red-500">
+            {errors.title ? errors.title.message : null}
+          </span>
         </div>
 
         <div className="w-full max-w-md flexCol">
           <textarea
             {...register('description', { required: true })}
-            className="h-20 rounded-lg border border-gray-400 p-2 outline-none flexCol focus:border-2 focus:border-primaryBlue"
+            className="h-24 rounded-lg border border-gray-400 p-2 outline-none flexCol focus:border-2 focus:border-primaryBlue"
             placeholder="Description"
           />
-          {errors.description && (
-            <span className="text-xs italic text-red-500">
-              This field is required
-            </span>
-          )}
+          <span className="min-h-4 text-xs italic text-red-500">
+            {errors.description ? errors.description.message : null}
+          </span>
         </div>
 
         <div className="flexCol">
