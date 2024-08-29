@@ -1,84 +1,27 @@
-<div align="center"><img src = "https://user-images.githubusercontent.com/31413093/197097625-5b3bd3cf-2bd6-4a3a-8059-a1fe9f28100b.svg" height="100px" alt="My Happy SVG"/></div>
+### Idea Board App
 
-<h2 align="center">template-vite-react-ts-tailwind</h2>
+## To get started
 
-<div align="center">
-<a href="https://reactjs.org/"><image src="https://img.shields.io/static/v1?label=React&message=^18&style=for-the-badge&labelColor=FFFFFF&logo=react&color=61DAFB"/></a> <a href="https://www.typescriptlang.org/"><image src="https://img.shields.io/static/v1?label=TypeScript&message=^5&style=for-the-badge&labelColor=FFFFFF&logo=typescript&color=3178C6"/></a> <a href="https://www.typescriptlang.org/"><image src="https://img.shields.io/static/v1?label=Tailwind%20CSS&message=^3&style=for-the-badge&labelColor=FFFFFF&logo=tailwindcss&color=06B6D4"/></a> <a href="https://cn.vitejs.dev/"><image src="https://img.shields.io/static/v1?label=Vite&message=^5&style=for-the-badge&labelColor=FFFFFF&logo=vite&color=646CFF"/></a>
-</div>
+1. Clone this repository
+2. Run npm install
+3. Run npm run dev
+4. Open http://localhost:5173/ in your browser
 
-## Introduction
+## Task information
 
-A starter [Vite](https://vitejs.dev/) template having:
+# Task
+Build an idea board that allows a user to create new ideas, edit existing ideas or delete them. Each idea should be represented as a tile on the board that displays a title, description and created/updated time. The title and description should be editable inline. The description text should have a max length of 140 characters. There should also be a button on the tile that allows for it to be deleted.
 
-- React
-- TypeScript
-- Vite
-- Tailwind CSS
-- Multiple eslint & prettier plugins installed
+When working through the task you should treat it as if you're writing real world production code. We're looking to see a test suite, comments where required and an attention to detail. In addition to this you may use whatever libraries or packages you wish. This should take you around two or three hours to complete fully but feel free to spend as much or as little time on the exercise as you like. Detail anything you didn't get around to completing in the `COMMENTS.md` file along with any other additonal information we should be aware of when reviewing the code.
 
-> [!IMPORTANT]
-> 
-> The latest code of this template has updated Vite to version 5.0+, which requires [Node.js](https://nodejs.org/) version 18+ or 20+. Please upgrade if your package manager warns about it. Or you can use [this release](https://github.com/RoyRao2333/template-vite-react-ts-tailwind/releases/tag/release-2024.01.15) which is Vite v4.x.
-> 
-> 该模板的最新代码中，已经将 Vite 的版本更新到了 5.0+，需要 18+ 或 20+ 版本的 [Node.js](https://nodejs.org/)。当你的包管理器发出警告时，请注意升级你的 Node.js 版本。如果你需要 Vite v4.x，请使用[这个版本](https://github.com/RoyRao2333/template-vite-react-ts-tailwind/releases/tag/release-2024.01.15)。
+# Required
+* Page should be fully responsive.
+* Each idea tile should contain a title and description, which is editable, as well as created/updated time.
+* New ideas should have the title field focused to prompt user to begin typing.
+* Add the ability to sort ideas by creation date or alphabetically.
 
-> [!IMPORTANT]
-> 
-> The latest code of this template has updated TypeScript to version 5.0+. If you need TypeScript v4.x, please use [this release](https://github.com/RoyRao2333/template-vite-react-ts-tailwind/releases/tag/release-2023.03.08).
-> 
-> 该模板的最新代码中，已经将 TypeScript 的版本更新到了 5.0+。如果你需要 TypeScript v4.x，请使用[这个版本](https://github.com/RoyRao2333/template-vite-react-ts-tailwind/releases/tag/release-2023.03.08)。
+# Stretch
+* Utilise the localStorage API to persist current state when the page is refreshed.
+* Add a character countdown as the user is approaching the limit of their description text.
+* Add an unobtrusive notification when an update is made to a tile.
 
-> [!TIP]
-> 
-> This code repository may occasionally update its dependency versions. If the dependency versions in the latest code do not meet your expectations, please go to [Tags](https://github.com/RoyRao2333/template-vite-react-ts-tailwind/tags) section to download a previous version of this template. I will display the dependencies used in each Tag, please choose the one you need.
-> 
-> 这个代码仓库可能会不定期更新其依赖包的版本。如果最新代码中依赖的版本不符合你的期望，请移步[Tags](https://github.com/RoyRao2333/template-vite-react-ts-tailwind/tags)下载之前的模板。每个Tag中使用的依赖都会展示在Tag详情中，请选择你需要的版本。
-
-## Install
-
-> This project uses [node](http://nodejs.org) and a package manager ([npm](https://npmjs.com), [yarn](https://yarnpkg.com/) or [pnpm](https://pnpm.io/)). Go check them out if you don't have them locally installed.
-
-Then you need a copy of this repository. You can [download](https://github.com/RoyRao2333/template-vite-react-ts-tailwind) a copy as zip but [degit](https://github.com/Rich-Harris/degit) is recommended.
-
-After you installed degit, please excute the following commands:
-
-```sh
-$ cd path-to-save-your-project
-$ degit royrao2333/template-vite-react-ts-tailwind your-project-name
-```
-
-After getting a copy of this repository, you can use your package manager to install dependecies:
-
-```sh
-$ cd path-to-your-project
-$ pnpm install
-
-# npm install
-# yarn install
-```
-
-## Usage
-
-Let's run!
-
-```sh
-$ pnpm run dev
-
-# npm run dev
-# yarn run dev
-```
-
-> We've already implemented some recommended configurations in `.eslintrc.cjs`, `.eslintignore`, `.prettierrc.json5` and `.prettierignore`. Feel free to edit them if you have your own preferences.
-
-## Related Efforts
-
-- [Vite](https://github.com/vitejs/vite)
-- [Tailwind CSS](https://github.com/tailwindlabs/tailwindcss)
-
-## Contributing
-
-Feel free to dive in! [Open an issue](https://github.com/RoyRao2333/template-vite-react-ts-tailwind) or submit PRs.
-
-## License
-
-[MIT](LICENSE) © Roy Rao
