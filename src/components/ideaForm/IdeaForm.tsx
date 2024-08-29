@@ -37,40 +37,33 @@ export const IdeaForm = () => {
       />
       <p className="text-lg font-bold text-primaryBlue">Add Idea</p>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="my-4 gap-4 flexCol">
-        <div className="w-full max-w-md flexCol">
-          <input
-            {...register('title', { required: true })}
-            placeholder="Title"
-            autoFocus
-            className="h-10 rounded-lg border border-gray-400 px-2 outline-none flexCol focus:border-2 focus:border-primaryBlue"
-          />
+      <form onSubmit={handleSubmit(onSubmit)} className="my-4 flexCol">
+        <input
+          {...register('title', { required: true })}
+          placeholder="Title"
+          autoFocus
+          className="h-10 max-w-md rounded-lg border border-gray-400 px-2 outline-none flexCol focus:border focus:border-primaryBlue"
+        />
+        <span className="mb-4 min-h-4 text-xs italic text-red-500">
+          {errors.title ? errors.title.message : null}
+        </span>
 
-          <span className="min-h-4 text-xs italic text-red-500">
-            {errors.title ? errors.title.message : null}
-          </span>
-        </div>
+        <textarea
+          {...register('description', { required: true })}
+          className="h-24 max-w-md rounded-lg border border-gray-400 p-2 outline-none flexCol focus:border focus:border-primaryBlue"
+          placeholder="Description"
+        />
+        <span className="mb-4 min-h-4 text-xs italic text-red-500">
+          {errors.description ? errors.description.message : null}
+        </span>
 
-        <div className="w-full max-w-md flexCol">
-          <textarea
-            {...register('description', { required: true })}
-            className="h-24 rounded-lg border border-gray-400 p-2 outline-none flexCol focus:border-2 focus:border-primaryBlue"
-            placeholder="Description"
-          />
-          <span className="min-h-4 text-xs italic text-red-500">
-            {errors.description ? errors.description.message : null}
-          </span>
-        </div>
-
-        <div className="flexCol">
-          <button
-            type="submit"
-            className="rounded-lg bg-primaryBlue px-8 py-2 font-bold text-white"
-            value="Submit"
-          >
-            Submit
-          </button>
-        </div>
+        <button
+          type="submit"
+          className="mb-2 rounded-lg bg-primaryBlue px-8 py-2 font-bold text-white"
+          value="Submit"
+        >
+          Submit
+        </button>
       </form>
     </section>
   );
