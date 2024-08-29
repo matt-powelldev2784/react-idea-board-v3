@@ -1,5 +1,11 @@
+import { IdeaForm } from './components/ideaForm/IdeaForm';
+
 const App = () => {
-  return <div className="text-center selection:bg-green-900"></div>;
+  return (
+    <div className="flex justify-center ">
+      <IdeaForm />
+    </div>
+  );
 };
 
 export default App;
