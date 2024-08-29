@@ -28,7 +28,8 @@ export const IdeaForm = () => {
           <input
             {...register('title', { required: true })}
             placeholder="Title"
-            className="h-10 rounded-lg border border-gray-400 px-2 flexCol"
+            autoFocus
+            className="h-10 rounded-lg border border-gray-400 px-2 outline-none flexCol focus:border-2 focus:border-primaryBlue"
           />
           {errors.title && (
             <span className="text-xs italic text-red-500">
@@ -40,7 +41,7 @@ export const IdeaForm = () => {
         <div className="w-full max-w-md flexCol">
           <textarea
             {...register('description', { required: true })}
-            className="h-20 rounded-lg border border-gray-400 p-2 flexCol"
+            className="h-20 rounded-lg border border-gray-400 p-2 outline-none flexCol focus:border-2 focus:border-primaryBlue"
             placeholder="Description"
           />
           {errors.description && (
