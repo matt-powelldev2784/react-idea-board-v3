@@ -3,5 +3,4 @@ export interface IdeaCardT {
   title: string;
   description: string;
   lastUpdated: string;
-  numberOfStars: number;
 }

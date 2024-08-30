@@ -2,6 +2,9 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import lightBulbImage from '../../assets/images/light_bulb_outline.svg';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { addIdeaToStorage } from '@/utils/localStorage';
+import { IdeaCardT } from '@/types/IdeaCardT';
+import { format } from 'date-fns';
 
 type Inputs = {
   title: string;
@@ -26,7 +29,15 @@ export const IdeaForm = () => {
     resolver: yupResolver(ideaValidationSchema),
     mode: 'onChange',
   });
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    const newIdea: IdeaCardT = {
+      ...data,
+      key: Date.now().toString(),
+      lastUpdated: format(new Date(), 'dd-MM-yy HH:mm'),
+    };
+    addIdeaToStorage(newIdea);
+  };
 
   return (
     <section className="bg-zinc-100 px-4 flexCol">
