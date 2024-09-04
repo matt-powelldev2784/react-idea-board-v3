@@ -3,7 +3,7 @@ import { IdeaForm } from './components/ideaForm/IdeaForm';
 
 const App = () => {
   return (
-    <main className="flex flex-col justify-center">
+    <main className="flex flex-col items-center justify-center">
       <IdeaForm />
       <IdeaCard />
     </main>
