@@ -47,7 +47,7 @@ export const IdeaCard = ({
     const newIdea: IdeaCardT = {
       ...data,
       id: id,
-      lastUpdated: format(new Date(), 'dd-MM-yy HH:mm'),
+      lastUpdated: format(new Date(), 'dd-MM-yy HH:mm:ss'),
     };
     updateIdeaInStorage(newIdea);
     setFormIsVisible((prev) => !prev);

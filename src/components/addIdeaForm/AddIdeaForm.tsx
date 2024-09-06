@@ -34,7 +34,7 @@ export const AddIdeaForm = () => {
     const newIdea: IdeaCardT = {
       ...data,
       id: Date.now().toString(),
-      lastUpdated: format(new Date(), 'dd-MM-yy HH:mm'),
+      lastUpdated: format(new Date(), 'dd-MM-yy HH:mm:ss'),
     };
     addIdeaToStorage(newIdea);
   };
