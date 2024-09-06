@@ -33,7 +33,7 @@ export const AddIdeaForm = () => {
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     const newIdea: IdeaCardT = {
       ...data,
-      key: Date.now().toString(),
+      id: Date.now().toString(),
       lastUpdated: format(new Date(), 'dd-MM-yy HH:mm'),
     };
     addIdeaToStorage(newIdea);
