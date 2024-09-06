@@ -6,7 +6,10 @@ import { useState } from 'react';
 import * as Yup from 'yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { updateIdeaInStorage } from '@/utils/localStorage';
+import {
+  removeIdeaFromStorage,
+  updateIdeaInStorage,
+} from '@/utils/localStorage';
 import { format } from 'date-fns';
 
 type Inputs = {
@@ -53,6 +56,11 @@ export const IdeaCard = ({
     window.location.reload();
   };
 
+  const onDelete = () => {
+    removeIdeaFromStorage(id);
+    window.location.reload();
+  };
+
   return (
     <div className="flex flex-col items-center overflow-hidden rounded-xl border border-gray-300 sm:w-full md:w-[800px]">
       <div className="relative h-full w-full bg-pink-gradient flexRow ">
@@ -65,6 +73,7 @@ export const IdeaCard = ({
           src={whiteBinIcon}
           alt="white bin icon"
           className="absolute right-4 top-3 h-[27px] w-[20px] cursor-pointer"
+          onClick={onDelete}
         />
       </div>
 
