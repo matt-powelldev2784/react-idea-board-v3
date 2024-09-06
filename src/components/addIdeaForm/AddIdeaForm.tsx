@@ -37,6 +37,7 @@ export const AddIdeaForm = () => {
       lastUpdated: format(new Date(), 'dd-MM-yy HH:mm:ss'),
     };
     addIdeaToStorage(newIdea);
+    window.location.reload();
   };
 
   return (
