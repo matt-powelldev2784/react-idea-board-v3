@@ -11,7 +11,7 @@ export const IdeaCardList = () => {
       ) : null}
 
       {ideaList.map((idea) => {
-        return <IdeaCard {...idea} key={idea.key} />;
+        return <IdeaCard {...idea} key={idea.id} />;
       })}
     </section>
   );
