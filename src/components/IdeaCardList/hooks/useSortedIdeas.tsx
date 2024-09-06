@@ -19,5 +19,7 @@ export const useSortedIdeas = ({ sortBy }: useSortedIdeasProps) => {
     setIdeaList(sortedIdeas);
   }, [sortBy]);
 
+  console.log('ideaList', ideaList);
+
   return { ideaList };
 };

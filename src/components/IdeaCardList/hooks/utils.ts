@@ -18,5 +18,5 @@ export const sortByTitle = (ideas: IdeaCardT[]) => {
 
 ///parse date
 export const parseUpdatedDate = (dateString: string): Date => {
-  return parse(dateString, 'dd-MM-yy HH:mm', new Date());
+  return parse(dateString, 'dd-MM-yy HH:mm:ss', new Date());
 };
