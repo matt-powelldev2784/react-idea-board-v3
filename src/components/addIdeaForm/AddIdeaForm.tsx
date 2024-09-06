@@ -20,7 +20,7 @@ export const ideaValidationSchema = Yup.object({
     .max(140, 'Description must be 140 characters or less'),
 });
 
-export const IdeaForm = () => {
+export const AddIdeaForm = () => {
   const {
     register,
     handleSubmit,
