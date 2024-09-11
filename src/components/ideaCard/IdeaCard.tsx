@@ -65,7 +65,7 @@ export const IdeaCard = ({
   };
 
   return (
-    <div className="flex flex-col items-center overflow-hidden rounded-xl border border-gray-300 sm:w-full md:w-[800px]">
+    <div className="flex w-full max-w-[800px] flex-col items-center overflow-hidden rounded-xl border border-gray-300">
       <div className="relative h-full w-full bg-pink-gradient flexRow ">
         <img
           src={kidIdeaImage}
