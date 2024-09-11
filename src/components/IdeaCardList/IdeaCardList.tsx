@@ -9,24 +9,26 @@ export const IdeaCardList = () => {
 
   return (
     <section className="m-4 mb-24 flex flex-col gap-4">
-      <div className="flex justify-center gap-4">
-        <button
-          onClick={() => setSortBy('date')}
-          className="rounded-lg bg-primaryBlue px-4 py-2 text-white"
-        >
-          Sort by Date
-        </button>
-
-        <button
-          onClick={() => setSortBy('title')}
-          className="rounded-lg bg-primaryBlue px-4 py-2 text-white"
-        >
-          Sort by Title
-        </button>
-      </div>
-
       {ideaList.length ? (
-        <h1 className="text-center text-xl font-bold">Idea List</h1>
+        <div>
+          <h1 className="mb-2 text-center text-xl font-bold">Idea List</h1>
+
+          <div className="mb-4 flex justify-center gap-4">
+            <button
+              onClick={() => setSortBy('date')}
+              className="rounded-lg bg-lightBlue  px-4 py-2 text-white"
+            >
+              Sort by Date
+            </button>
+
+            <button
+              onClick={() => setSortBy('title')}
+              className="rounded-lg bg-lightBlue px-4 py-2 text-white"
+            >
+              Sort by Title
+            </button>
+          </div>
+        </div>
       ) : null}
 
       {ideaList.map((idea) => {
