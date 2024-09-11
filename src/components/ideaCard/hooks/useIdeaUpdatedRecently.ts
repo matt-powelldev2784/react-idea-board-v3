@@ -7,8 +7,8 @@ const useIdeaUpdatedRecently = (lastUpdated: string) => {
   useEffect(() => {
     const now = format(new Date(), 'dd-MM-yy HH:mm:ss');
     const secondsDifference = differenceInSeconds(now, lastUpdated);
-    // If the idea was updated within the last 20 seconds, updated recently is true
-    const updatedRecently = secondsDifference <= 20 ? true : false;
+    // If the idea was updated within the last 60 seconds, updated recently is true
+    const updatedRecently = secondsDifference <= 60 ? true : false;
 
     setIsUpdatedRecently(updatedRecently);
   }, [lastUpdated]);
