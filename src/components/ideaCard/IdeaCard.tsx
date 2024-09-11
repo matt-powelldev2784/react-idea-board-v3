@@ -39,6 +39,7 @@ export const IdeaCard = ({
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<Inputs>({
     resolver: yupResolver(ideaValidationSchema),
@@ -63,6 +64,10 @@ export const IdeaCard = ({
     removeIdeaFromStorage(id);
     window.location.reload();
   };
+
+  //watch the value of the description field, variable is use to count the number of characters
+  const descriptionField = watch('description', '');
+  console.log('descriptionField.length', descriptionField.length);
 
   return (
     <div className="flex w-full max-w-[800px] flex-col items-center overflow-hidden rounded-xl border border-gray-300">
@@ -100,7 +105,10 @@ export const IdeaCard = ({
       ) : null}
 
       {formIsVisible ? (
-        <form onSubmit={handleSubmit(onSubmit)} className="my-4 flexCol">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="relative my-4 flexCol"
+        >
           <p className="mb-4 text-lg font-bold text-primaryBlue">Update Idea</p>
 
           <input
@@ -121,6 +129,11 @@ export const IdeaCard = ({
           <span className="mb-4 min-h-4 text-xs italic text-red-500">
             {errors.description ? errors.description.message : null}
           </span>
+          {descriptionField.length > 120 ? (
+            <p className="absolute top-[98px]  text-xs text-red-500">
+              Character count: {descriptionField.length}
+            </p>
+          ) : null}
 
           <div className="justify-between gap-2 flexRow">
             <button
