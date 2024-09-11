@@ -11,6 +11,8 @@ import {
   updateIdeaInStorage,
 } from '@/utils/localStorage';
 import { format } from 'date-fns';
+import useIdeaUpdatedRecently from './hooks/useIdeaUpdatedRecently';
+import { IdeaUpdatedNotification } from './components/IdeaUpdatedNotification';
 
 type Inputs = {
   title: string;
@@ -33,6 +35,7 @@ export const IdeaCard = ({
   id,
 }: IdeaCardT) => {
   const [formIsVisible, setFormIsVisible] = useState(false);
+  const ideaUpdateRecently = useIdeaUpdatedRecently(lastUpdated);
   const {
     register,
     handleSubmit,
@@ -75,6 +78,7 @@ export const IdeaCard = ({
           className="absolute right-4 top-3 h-[27px] w-[20px] cursor-pointer"
           onClick={onDelete}
         />
+        {ideaUpdateRecently ? <IdeaUpdatedNotification /> : null}
       </div>
 
       {!formIsVisible ? (
