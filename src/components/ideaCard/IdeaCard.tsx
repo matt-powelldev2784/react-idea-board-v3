@@ -67,7 +67,6 @@ export const IdeaCard = ({
 
   //watch the value of the description field, variable is use to count the number of characters
   const descriptionField = watch('description', '');
-  console.log('descriptionField.length', descriptionField.length);
 
   return (
     <div className="flex w-full max-w-[800px] flex-col items-center overflow-hidden rounded-xl border border-gray-300">
@@ -107,7 +106,7 @@ export const IdeaCard = ({
       {formIsVisible ? (
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="relative my-4 flexCol"
+          className="relative my-4 px-2 flexCol"
         >
           <p className="mb-4 text-lg font-bold text-primaryBlue">Update Idea</p>
 
