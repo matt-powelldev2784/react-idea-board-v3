@@ -15,13 +15,13 @@ export const getIdeasFromStorage = (): IdeaCardT[] => {
 export const updateIdeaInStorage = (idea: IdeaCardT) => {
   const ideas = getIdeasFromStorage();
   const updatedIdeas = ideas.map((storedIdea) =>
-    storedIdea.key === idea.key ? idea : storedIdea,
+    storedIdea.id === idea.id ? idea : storedIdea,
   );
   localStorage.setItem('ideas', JSON.stringify(updatedIdeas));
 };
 
-export const removeIdeaFromStorage = (key: string) => {
+export const removeIdeaFromStorage = (id: string) => {
   const ideas = getIdeasFromStorage();
-  const filteredIdeas = ideas.filter((idea) => idea.key !== key);
+  const filteredIdeas = ideas.filter((idea) => idea.id !== id);
   localStorage.setItem('ideas', JSON.stringify(filteredIdeas));
 };

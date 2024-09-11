@@ -20,10 +20,11 @@ export const ideaValidationSchema = Yup.object({
     .max(140, 'Description must be 140 characters or less'),
 });
 
-export const IdeaForm = () => {
+export const AddIdeaForm = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<Inputs>({
     resolver: yupResolver(ideaValidationSchema),
@@ -33,11 +34,15 @@ export const IdeaForm = () => {
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     const newIdea: IdeaCardT = {
       ...data,
-      key: Date.now().toString(),
-      lastUpdated: format(new Date(), 'dd-MM-yy HH:mm'),
+      id: Date.now().toString(),
+      lastUpdated: format(new Date(), 'dd-MM-yy HH:mm:ss'),
     };
     addIdeaToStorage(newIdea);
+    window.location.reload();
   };
+
+  //watch the value of the description field, variable is use to count the number of characters
+  const description = watch('description', '');
 
   return (
     <section className="bg-zinc-100 px-4 flexCol">
@@ -64,9 +69,14 @@ export const IdeaForm = () => {
           className="h-24 max-w-md rounded-lg border border-gray-400 p-2 outline-none flexCol focus:border focus:border-primaryBlue"
           placeholder="Description"
         />
-        <span className="mb-4 min-h-4 text-xs italic text-red-500">
+        <span className="mb-4 min-h-4 text-center text-xs italic text-red-500">
           {errors.description ? errors.description.message : null}
         </span>
+        {description.length > 120 ? (
+          <p className="absolute top-[162px] text-xs text-red-500">
+            Character count: {description.length}
+          </p>
+        ) : null}
 
         <button
           type="submit"

@@ -6,6 +6,10 @@ export default {
         primaryBlue: '#356597',
         lightBlue: '#337bcc',
       },
+      backgroundImage: {
+        'pink-gradient':
+          'linear-gradient(135deg, rgba(255, 0, 150, 0.5), rgba(0, 204, 255, 0.5))',
+      },
       screens: {
         sm: '0px',
         md: '600px',

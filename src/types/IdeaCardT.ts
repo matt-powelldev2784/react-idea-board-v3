@@ -1,5 +1,5 @@
 export interface IdeaCardT {
-  key: string;
+  id: string;
   title: string;
   description: string;
   lastUpdated: string;
