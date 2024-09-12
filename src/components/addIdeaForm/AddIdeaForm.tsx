@@ -45,7 +45,7 @@ export const AddIdeaForm = () => {
     reset(); // reset form after submission
   };
 
-  //watch the value of the description field, variable is use to count the number of characters
+  //watch the value of the description field, variable is used to count the number of characters
   const description = watch('description', '');
 
   return (
