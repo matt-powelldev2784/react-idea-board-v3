@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { addIdeaToStorage } from '@/utils/localStorage';
 import { IdeaCardT } from '@/types/IdeaCardT';
 import { format } from 'date-fns';
+import { useIdeaContext } from '@/context/IdeaContext';
 
 type Inputs = {
   title: string;
@@ -21,11 +22,13 @@ export const ideaValidationSchema = Yup.object({
 });
 
 export const AddIdeaForm = () => {
+  const { setIdeasNeedUpdateCounter } = useIdeaContext();
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
+    reset,
   } = useForm<Inputs>({
     resolver: yupResolver(ideaValidationSchema),
     mode: 'onChange',
@@ -38,7 +41,8 @@ export const AddIdeaForm = () => {
       lastUpdated: format(new Date(), 'dd-MM-yy HH:mm:ss'),
     };
     addIdeaToStorage(newIdea);
-    window.location.reload();
+    setIdeasNeedUpdateCounter((prev: number) => prev + 1);
+    reset(); // reset form after submission
   };
 
   //watch the value of the description field, variable is use to count the number of characters

@@ -13,6 +13,7 @@ import {
 import { format } from 'date-fns';
 import useIdeaUpdatedRecently from './hooks/useIdeaUpdatedRecently';
 import { IdeaUpdatedNotification } from './components/IdeaUpdatedNotification';
+import { useIdeaContext } from '@/context/IdeaContext';
 
 type Inputs = {
   title: string;
@@ -36,6 +37,7 @@ export const IdeaCard = ({
 }: IdeaCardT) => {
   const [formIsVisible, setFormIsVisible] = useState(false);
   const ideaUpdateRecently = useIdeaUpdatedRecently(lastUpdated);
+  const { setIdeasNeedUpdateCounter } = useIdeaContext();
   const {
     register,
     handleSubmit,
@@ -57,12 +59,14 @@ export const IdeaCard = ({
       lastUpdated: format(new Date(), 'dd-MM-yy HH:mm:ss'),
     };
     updateIdeaInStorage(newIdea);
-    window.location.reload();
+    setFormIsVisible((prev) => !prev);
+    setIdeasNeedUpdateCounter((prev: number) => prev + 1);
   };
 
   const onDelete = () => {
     removeIdeaFromStorage(id);
-    window.location.reload();
+    setFormIsVisible((prev) => !prev);
+    setIdeasNeedUpdateCounter((prev: number) => prev + 1);
   };
 
   //watch the value of the description field, variable is use to count the number of characters
