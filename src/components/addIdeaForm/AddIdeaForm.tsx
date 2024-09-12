@@ -52,7 +52,7 @@ export const AddIdeaForm = () => {
     <section className="bg-zinc-100 px-4 flexCol">
       <img
         src={lightBulbImage}
-        alt="My SVG"
+        alt="light bulb icon"
         className="mt-4 h-12 w-12 text-primaryBlue"
       />
       <p className="text-lg font-bold text-primaryBlue">Add Idea</p>
