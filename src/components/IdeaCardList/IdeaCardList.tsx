@@ -1,11 +1,8 @@
-import { useState } from 'react';
 import { IdeaCard } from '../ideaCard/IdeaCard';
-import { useSortedIdeas } from './hooks/useSortedIdeas';
+import { useIdeaContext } from '@/context/IdeaContext';
 
 export const IdeaCardList = () => {
-  const [sortBy, setSortBy] = useState<'title' | 'date'>('date');
-
-  const { ideaList } = useSortedIdeas({ sortBy });
+  const { ideaList, setSortBy } = useIdeaContext();
 
   return (
     <section className="m-4 mb-24 flex w-full gap-4  p-4 flexCol">
