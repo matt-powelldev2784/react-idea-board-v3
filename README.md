@@ -13,7 +13,8 @@
 
 ## My approach
 
-Build app with Vite, React, TypeScript, TailwindCSS, and Jest using template form Vite Community
+Build app with Vite, React, TypeScript, TailwindCSS using template form Vite Community.
+Implement testing with Vitest and React Testing Library.
 
 ### Project plan in bullet points
 
