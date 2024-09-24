@@ -6,7 +6,7 @@ export const IdeaUpdatedNotification = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(false);
-    }, 10000); // 10 seconds
+    }, 30000); // 10 seconds
 
     return () => clearTimeout(timer);
   }, []);

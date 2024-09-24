@@ -16,7 +16,7 @@ const useIdeaUpdatedRecently = (lastUpdated: string) => {
     const secondsDifference = differenceInSeconds(now, parsedLastUpdated);
 
     // If the idea was updated within the last 60 seconds, updated recently is true
-    const updatedRecently = secondsDifference <= 60 ? true : false;
+    const updatedRecently = secondsDifference <= 30 ? true : false;
 
     setIsUpdatedRecently(updatedRecently);
   }, [lastUpdated]);
