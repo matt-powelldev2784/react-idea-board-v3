@@ -7,6 +7,10 @@
 3. Run npm run dev
 4. Open http://localhost:5173/ in your browser
 
+
+## Deployed App
+* App Deployed at https://react-idea-board-simplified.netlify.app/
+
 ## My approach
 
 Build app with Vite, React, TypeScript, TailwindCSS, and Jest using template form Vite Community
